@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Run Forever - Premium Fitness App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="theme-light">
+    <div class="app-shell">
+      <header class="top-bar glass">
+        <div>
+          <p class="label">Run Forever</p>
+          <h1>Today</h1>
+        </div>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+          <span class="theme-dot"></span>
+        </button>
+      </header>
+
+      <main class="screen-stack">
+        <section class="screen active" id="dashboard">
+          <div class="hero-card glass">
+            <p class="label">Daily Goal Progress</p>
+            <div class="progress-wrap">
+              <svg class="progress-ring" viewBox="0 0 240 240" aria-hidden="true">
+                <defs>
+                  <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#55d6ff" />
+                    <stop offset="100%" stop-color="#4ee6a4" />
+                  </linearGradient>
+                </defs>
+                <circle class="track" cx="120" cy="120" r="90"></circle>
+                <circle id="ringFill" class="fill" cx="120" cy="120" r="90"></circle>
+              </svg>
+              <div class="ring-content">
+                <h2 id="stepCount">8,420</h2>
+                <p>steps</p>
+              </div>
+            </div>
+            <p class="motivation">You are 84% to your goal. Keep moving, you are doing great.</p>
+            <button class="primary-btn nav-trigger" data-target="run">Start Run</button>
+          </div>
+
+          <div class="stat-grid">
+            <article class="stat-card glass">
+              <p class="label">Distance</p>
+              <h3 id="distanceValue">6.1 km</h3>
+            </article>
+            <article class="stat-card glass">
+              <p class="label">Calories</p>
+              <h3 id="calorieValue">478 kcal</h3>
+            </article>
+            <article class="stat-card glass">
+              <p class="label">Active Time</p>
+              <h3 id="timeValue">00:46:12</h3>
+            </article>
+            <article class="stat-card glass">
+              <p class="label">Avg Pace</p>
+              <h3>7:34 /km</h3>
+            </article>
+          </div>
+        </section>
+
+        <section class="screen" id="run">
+          <div class="live-bg"></div>
+          <div class="run-card glass">
+            <p class="label">Live Run</p>
+            <h2 id="runTimer">00:00</h2>
+            <div class="live-stats">
+              <div>
+                <p class="label">Steps</p>
+                <h3 id="liveSteps">0</h3>
+              </div>
+              <div>
+                <p class="label">Distance</p>
+                <h3 id="liveDistance">0.00 km</h3>
+              </div>
+            </div>
+            <div class="control-row">
+              <button id="pauseBtn" class="secondary-btn">Pause</button>
+              <button id="resumeBtn" class="secondary-btn hidden">Resume</button>
+              <button id="stopBtn" class="danger-btn nav-trigger" data-target="history">Stop</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="screen" id="history">
+          <div class="section-head">
+            <h2>Activity History</h2>
+            <button class="chip nav-trigger" data-target="analytics">View Analytics</button>
+          </div>
+          <div class="history-list" id="historyList"></div>
+        </section>
+
+        <section class="screen" id="analytics">
+          <div class="section-head">
+            <h2>Progress Analytics</h2>
+            <button class="chip nav-trigger" data-target="profile">Profile</button>
+          </div>
+
+          <article class="chart-card glass">
+            <p class="label">Weekly Steps</p>
+            <div class="bar-chart" id="weeklyChart"></div>
+          </article>
+          <article class="chart-card glass">
+            <p class="label">Monthly Distance</p>
+            <div class="line-chart">
+              <svg viewBox="0 0 320 120">
+                <polyline
+                  points="0,102 45,82 95,70 140,78 190,52 235,40 285,26 320,18"
+                ></polyline>
+              </svg>
+            </div>
+          </article>
+        </section>
+
+        <section class="screen" id="profile">
+          <div class="profile-card glass">
+            <h2>Arjun Runner</h2>
+            <p class="label">Goal Settings</p>
+            <div class="goals">
+              <div class="goal-item">
+                <span>Daily Step Goal</span>
+                <strong>10,000</strong>
+              </div>
+              <div class="goal-item">
+                <span>Weekly Distance Goal</span>
+                <strong>35 km</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-card glass">
+            <p class="label">Achievements</p>
+            <div class="badge-row">
+              <div class="badge">5K Streak</div>
+              <div class="badge">Early Bird</div>
+              <div class="badge">10K Hero</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="tab-bar glass">
+        <button class="tab active nav-trigger" data-target="dashboard">Home</button>
+        <button class="tab nav-trigger" data-target="run">Run</button>
+        <button class="tab nav-trigger" data-target="history">History</button>
+        <button class="tab nav-trigger" data-target="analytics">Analytics</button>
+        <button class="tab nav-trigger" data-target="profile">Profile</button>
+      </nav>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
