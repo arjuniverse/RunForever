@@ -1,7 +1,7 @@
 
 # Run Forever
 
-**Run Forever** is a modern fitness tracking app designed to help you stay active, motivated, and consistent. It tracks your daily steps, running distance, calories burned, and activity time — all wrapped in a smooth, minimal, Apple-inspired UI.
+
 
 ---
 
